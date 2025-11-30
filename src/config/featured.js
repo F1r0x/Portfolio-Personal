@@ -4,7 +4,7 @@ module.exports = [
     title: 'FitTraining App',
     cover: '/fittrainingapp.png',
     github: 'https://github.com/F1r0x',
-    external: 'https://fittrainig.es',
+    external: 'https://fittraining.es',
     descriptionHtml:
       'Aplicación web para entrenadores y deportistas que permite gestionar usuarios, entrenamientos, rutinas y progresiones. Proyecto orientado al CrossFit y al entrenamiento funcional, desarrollado con un enfoque práctico y escalable. <a target="_blank" rel="noreferrer" href="https://fittraining.es"> ¡Visitar Proyecto!</a> ',
     techs: ['React', 'Typescript', 'Lovable', 'Supabase'],
