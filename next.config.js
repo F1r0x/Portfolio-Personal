@@ -1,6 +1,11 @@
 module.exports = {
   images: {
-    sizes: [320, 480, 820, 1200],
-    domains: ['jrgarciadev.s3.amazonaws.com'],
+  deviceSizes: [320, 480, 820, 1200],
+  remotePatterns: [
+  {
+  protocol: 'https',
+  hostname: 'jrgarciadev.s3.amazonaws.com',
   },
-};
+  ],
+  },
+  };
