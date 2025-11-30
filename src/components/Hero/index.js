@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { email } from '@config';
+import { email } from '@config/index';
 import { NAV_DELAY, LOADER_DELAY } from '@lib/constants';
 import { StyledHeroSection, StyledBigTitle } from './styles';
 

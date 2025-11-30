@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 import { useEffect, useRef } from 'react';
-import { email } from '@config';
+import { email } from '@config/index';
 import { srConfig } from '@config/sr';
 import { NumberedHeading } from '@common/styles';
 import { StyledContactSection } from './styles';
