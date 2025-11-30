@@ -2,4 +2,3 @@
 
 ![👉 Pulsa aquí para acceder 👈](https://profilepatrick.com)
 
-Gracias !
