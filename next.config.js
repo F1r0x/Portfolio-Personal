@@ -1,6 +1,4 @@
 // src/config/index.js
-import projectsData from './projects';
-
 export const email = 'patrickschonewolf@hotmail.com';
 export const featuredProjects = featuredProjectsData;
 export const projects = projectsData;
