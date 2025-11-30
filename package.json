@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && next build",
+    "build": "next build",
+    "export": "next export",
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
@@ -56,7 +57,7 @@
     "prop-types": "^15.7.2"
   }, 
   "engines": {
-    "node": "16.x"
+    "node": "24.x"
   }
     
 }
