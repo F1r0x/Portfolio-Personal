@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { email } from '@config';
+export const email = 'patrickschonewolf@hotmail.com';
+export const featuredProjects = featuredProjects;
+export const projects = projects;
 import { Side } from '@components';
 import { StyledLinkWrapper } from './styles';
 
