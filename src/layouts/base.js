@@ -6,7 +6,7 @@ const BaseLayout = ({ children }) => {
   return (
     <div id="main">
       <Head>
-        <title>Junior García | Web & Mobile developer</title>
+        <title>Patrick | Web Developer</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -28,23 +28,25 @@ const BaseLayout = ({ children }) => {
           key="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@jrgarciadev" />
-        <meta property="og:site_name" content="Junior García | Web & Mobile developer" />
+        {/*<meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@patrick94xd" />
+        <meta property="og:site_name" content="Patrick | Web Developer" />**/}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Junior García | Web & Mobile developer" />
-        <meta property="og:locale" content="en" />
-        <meta property="og:url" content="https://jrgarciadev.com" />
+        <meta property="og:title" content="Patrick | Web Developer" />
+        <meta property="og:locale" content="es" />
+        <meta property="og:url" content="#" />
         <meta
           name="description"
-          content="Hello! I'm Junior, a Software Developer based in Buenos Aires, Argentina. I enjoy creating beautiful and reliable applications for internet and phones. My goal is to always build scalable products and performant experiences."
+          content="Buenas! Mi nombre es Patrick y soy un desarrollador Web orientado a ciberseguridad, automatización y administración de sistemas
+          Linux.<br></br><br></br> Apasionado del aprendizaje continuo, la optimización de procesos, la creación de
+          plataformas útiles y los proyectos donde pueda combinar tecnología y creatividad."
         />
         <meta
           name="keywords"
           content="Developer, Javascript, Freelancer, React, React native, PHP, Laravel Developer, Vue JS Developer, React Developer"
         />
-        <meta property="og:image" content="https://jrgarciadev.com/avatar.jpeg" />
-        <meta property="twitter:image" content="https://jrgarciadev.com/avatar.jpeg" />
+        <meta property="og:image" content="https://jrgarciadev.com/avatar.png" />
+        <meta property="twitter:image" content="https://jrgarciadev.com/avatar.png" />
       </Head>
       {children}
     </div>

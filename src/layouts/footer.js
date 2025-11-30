@@ -30,15 +30,15 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <StyledMadeWith>
-        <p>Made with</p>
-        <a rel="noreferrer" target="_blank" href="https://nextjs.org/">
-          <Image src="/nextjs-white-logo.svg" width={100} height={100} />
+        <p>Ver mi Curriculum</p>
+        <a rel="noreferrer" target="_blank" href="/CVPatrickSchonewolf.pdf">
+          <Image src="/curriculum-vitae.png" width={100} height={100} />
         </a>
       </StyledMadeWith>
 
       <StyledCredit tabindex="-1">
-        <a rel="noreferrer" target="_blank" href="https://github.com/bchiang7/v4">
-          <div>Adapted from the Brittany Chiang Portfolio</div>
+        <a rel="noreferrer" target="_blank" href="https://github.com/F1r0x">
+          <div>Para más información o cualquier duda, por favor póngase en contacto conmigo.</div>
         </a>
       </StyledCredit>
     </StyledFooter>

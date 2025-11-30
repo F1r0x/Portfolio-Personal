@@ -111,6 +111,7 @@ export const StyledMadeWith = styled.div`
     font-family: ${(props) => props.theme.fontFamily.fontMono};
     font-size: ${(props) => props.theme.fontSize.sm};
     line-height: 1;
+    margin-bottom: 3rem;
   }
 `;
 

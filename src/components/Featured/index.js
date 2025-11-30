@@ -25,7 +25,7 @@ const Featured = () => {
 
   return (
     <section id="projects">
-      <NumberedHeading ref={revealTitle}>Some Projects I’ve Built</NumberedHeading>
+      <NumberedHeading ref={revealTitle}>Algunos de mis Proyectos</NumberedHeading>
 
       <div>
         {featuredProjects &&
@@ -34,7 +34,7 @@ const Featured = () => {
             return (
               <StyledProject key={title} ref={(el) => (revealProjects.current[i] = el)}>
                 <div className="project-content">
-                  <p className="project-overline">Featured Project</p>
+                  <p className="project-overline">Proyecto Destacado</p>
                   <h3 className="project-title">{title}</h3>
                   <div
                     className="project-description"

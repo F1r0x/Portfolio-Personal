@@ -37,7 +37,7 @@ const Projects = () => {
   return (
     <StyledProjectsSection>
       <div className="title-container" ref={revealTitle}>
-        <h2>Other Projects</h2>
+        <h2>Otros Proyectos</h2>
         {/*   <Link href="/archive">
           <a className="archive-link inline-link">View all projects</a>
         </Link> */}

@@ -3,44 +3,44 @@ import featuredProjects from './featured';
 import projects from './projects';
 
 module.exports = {
-  email: 'jrgarciadev@gmail.com',
+  email: 'patrickschonewolf@hotmail.com',
   featuredProjects,
   projects,
-  skills: ['JavaScript', 'TypeScript', 'React Native', 'React', 'Next.js', 'GraphQL'],
+  skills: ['Linux', 'HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Bash', 'TypeScript', 'Git', 'Docker', 'Virtualbox', 'Nmap', 'Metasploit', 'Wireshark', 'Burp Suite', 'WordPress', 'Elementor',  'MySQL', 'N8N', 'OpenAI API', 'Photoshop'],
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/jrgarciadev',
+      url: 'https://github.com/f1r0x',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/jrgarciadev/',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/jrgarciadev',
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/jrgarciadev',
+      url: 'https://www.linkedin.com/in/f1r0x/',
     },
   ],
 
   navLinks: [
     {
-      name: 'About',
+      name: 'Sobre Mí',
       url: '/#about',
     },
     {
-      name: 'Blog',
-      url: 'https://blog.jrgarciadev.com',
-    },
-    {
-      name: 'Work',
+      name: 'Proyectos',
       url: '/#projects',
     },
     {
-      name: 'Contact',
+      name: 'Experiencia',
+      url: '/#experience',
+    },
+    {      
+      name: 'Estudios',
+      url: '/#education',
+    },
+    {      
+      name: 'HTB',
+      url: '/#hackthebox',
+    },
+    {
+      name: 'Contacto',
       url: '/#contact',
     },
   ],

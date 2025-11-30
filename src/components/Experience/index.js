@@ -1,0 +1,67 @@
+/* eslint-disable react/no-array-index-key */
+import { useState, useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { NAV_DELAY, LOADER_DELAY } from '@lib/constants';
+import { StyledExperienceSection, StyledTimeline, StyledTimelineItem, StyledTimelineDot, StyledTimelineContent, StyledTimelineLine } from './styles';
+import { NumberedHeading } from '@common/styles';
+
+const Experience = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), NAV_DELAY);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Aquí van los datos de tus experiencias laborales. Cada objeto representa un trabajo.
+  // Añade o modifica según tus datos reales. La cronología se asume de más reciente a más antigua,
+  // pero puedes ordenarlos como prefieras (el timeline se renderiza en orden descendente visualmente).
+  const experiences = [
+    {
+      title: 'Desarrollador de Aplicaciones Web ',
+      company: 'Freelancer',
+      period: 'Julio 2025 - Presente',
+      description: 'Diseño y desarrollo de aplicaciones y sitios web a medida para empresas y particulares.',
+    },
+    {
+      title: 'Desarrollador Web Full Stack',
+      company: 'Optima Quantum S.L',
+      period: 'Marzo 2025 - Julio 2025',
+      description: 'Desarrollo de aplicaciones web escalables con React y Node.js, automatización de sistemas con N8N y Make, gestión de bases de datos, auditorías de ciberseguridad...',
+    },
+    {
+      title: 'Tecnico de Sistemas Fotovoltaicos',
+      company: 'Ruano Energía S.L',
+      period: 'Abril 2020 - Agosto 2021',
+      description: 'Operario técnico en instalaciónes fotovoltaicas, instalación y programación de inversores, actualización y renovación de software, sistemas de redes y conexiones.',
+    },
+    // Añade más experiencias aquí si es necesario
+  ];
+
+  return (
+    <StyledExperienceSection id="experience">
+      <NumberedHeading>Experiencia Laboral</NumberedHeading>
+      <StyledTimeline>
+        <TransitionGroup component={null}>
+          {isMounted &&
+            experiences.map((exp, i) => (
+              <CSSTransition key={i} classNames="slidein" timeout={LOADER_DELAY}>
+                <StyledTimelineItem style={{ transitionDelay: `${i * 200}ms` }}>
+                  <StyledTimelineDot delay={i * 200 + 100} />
+                  <StyledTimelineContent>
+                    <h3>{exp.title}</h3>
+                    <h4>{exp.company}</h4>
+                    <span>{exp.period}</span>
+                    <p>{exp.description}</p>
+                  </StyledTimelineContent>
+                  {i < experiences.length - 1 && <StyledTimelineLine delay={i * 200 + 400} />}
+                </StyledTimelineItem>
+              </CSSTransition>
+            ))}
+        </TransitionGroup>
+      </StyledTimeline>
+    </StyledExperienceSection>
+  );
+};
+
+export default Experience;

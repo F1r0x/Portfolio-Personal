@@ -8,4 +8,8 @@ export { default as About } from './About';
 export { default as Featured } from './Featured';
 export { default as Projects } from './Projects';
 export { default as Contact } from './Contact';
+export { default as Experience } from './Experience';
+export { default as Education } from './Education';
+export { default as TechCloud } from './TechCloud';
+export { default as HackTheBox } from './HackTheBox';
 export * from './Icons';

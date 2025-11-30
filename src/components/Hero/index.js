@@ -13,18 +13,19 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Welcome, I&apos;m</h1>;
-  const two = <StyledBigTitle>Junior García.</StyledBigTitle>;
-  const three = <StyledBigTitle slate>I build web and mobile apps.</StyledBigTitle>;
+  const one = <h1>¡Bienvenido a mi Porfolio!</h1>;
+  const two = <StyledBigTitle>Patrick Schönewolf </StyledBigTitle>;
+  const three = <StyledBigTitle slate>Desarrollador de Aplicaciones Web</StyledBigTitle>;
   const four = (
     <p>
-      I&apos;m a software developer based in Buenos Aires AR, specializing in building exceptional
-      websites and mobile applications, and everything in between.
+      Soy un desarrollador Web orientado a ciberseguridad, automatización y administración de sistemas
+      Linux.<br></br><br></br> Apasionado del aprendizaje continuo, la optimización de procesos, la creación de
+      plataformas útiles y los proyectos donde pueda combinar tecnología y creatividad.
     </p>
   );
   const five = (
     <a href={`mailto:${email}`} className="email-link">
-      Get In Touch
+      Contactar
     </a>
   );
 

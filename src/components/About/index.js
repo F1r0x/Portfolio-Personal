@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { skills } from '@config';
 import { srConfig } from '@config/sr';
 import { StyledAboutSection, StyledText, StyledPic } from './styles';
+import TechCloud from '../TechCloud';
 
 const About = () => {
   const revealContainer = useRef(null);
@@ -17,31 +18,30 @@ const About = () => {
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <NumberedHeading>About Me</NumberedHeading>
+      <NumberedHeading>Sobre mi</NumberedHeading>
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello! I&apos;m Junior, a Software Developer based in Buenos Aires, Argentina.</p>
+            <p>¡Buenas! Mi nombre es Patrick y soy un desarrollador web de Alicante, España.</p><br />
             <p>
-              I enjoy creating beautiful and reliable applications for internet and phones.
+             Desde hace más de 5 años me dedico a crear aplicaciones web y móviles, especializándome en el desarrollo Front-End. 
+             <p>También tengo experiencia en laboratorios de ciberseguridad y administración de sistemas Linux.</p>
               <br />
-              My goal is to always build scalable products and performant experiences.
+              Mi objetivo es encontrar un trabajo donde pueda seguir aprendiendo y creciendo como desarrollador, aportando valor a la empresa y a los usuarios finales.
             </p>
             <br />
-            <p>Here are a few technologies I&apos;ve been working with recently:</p>
+            <p>Estas son algunas de las tecnologías que más he utilizado durante estos últimos años:</p>
           </div>
-
-          <ul className="skills-list">
-            {skills && skills.map((skill) => <li key={skill}>{skill}</li>)}
-          </ul>
+          
         </StyledText>
 
         <StyledPic>
           <div className="wrapper">
-            <Image width={300} height={300} blu src="/avatar.jpeg" alt="Avatar" className="img" />
+            <Image width={300} height={300} blu src="/avatar.png" alt="Avatar" className="img" />
           </div>
         </StyledPic>
       </div>
+      <TechCloud />
     </StyledAboutSection>
   );
 };

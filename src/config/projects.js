@@ -1,33 +1,35 @@
 /* eslint-disable max-len */
 module.exports = [
   {
-    title: 'Realtime TODO',
-    external: 'https://nextjs-todo-list.vercel.app/',
-    github: 'https://github.com/jrgarciadev/nextjs-todo-list',
+    title: 'Automatización de Tareas con  N8N y Make',
+    external: 'https://automatizatutrabajo.com',
+    github: 'https://github.com/F1r0x/N8N-Templates',
     descriptionHtml:
-      "Web application to add, edit, delete and assign to another person in <b>real-time</b>. My participation came out in one of his videos Minute: 29:35 -> <a target='_blank' href='https://www.youtube.com/watch?v=fyjNpvtzVhk'>Video</a>",
-    techs: ['Next.js', 'MaterialUI', 'Firebase'],
+      "Experiencia en la automatización de procesos y tareas empresariales, integración de API's, generación de asistentes virtuales y gestión de servicios.",
+    techs: ['N8N', 'Make', 'API OpenAI', 'RetellAI', 'JS', 'JSON', 'SQL', 'Linux'],
   },
   {
-    title: 'GSAP Slider Component',
-    external: 'https://nextjs-gsap-slider.vercel.app/',
-    github: 'https://github.com/jrgarciadev/nextjs-strapi-slider',
+    title: 'Ciberseguridad Práctica y CTFs',
+    external: 'https://territoriohacker.com/hack-the-box/',
+    github: 'https://github.com/TerritorioHacker',
     descriptionHtml:
-      'Web application to show modern slider, the slider images are managament from Strapi CMS Panel',
-    techs: ['Next.js', 'Typescript', 'Strapi', 'GraphQL'],
+      "Análisis de vulnerabilidades, resolución de CTFs, creación de entornos de prácticas, investigación de herramientas de pentesting y documentación de procesos en mi blog de ciberseguridad. Experiencia con Linux, scripting y metodologías prácticas de seguridad.",
+    techs: ['Linux', 'Bash', 'CTFs', 'HackTheBox', 'Nmap', 'Burp Suite', 'Virtualización', 'SSH'],
   },
   {
-    title: 'PWA Instagram for Pets',
-    external: 'https://petgram-chi-bice.now.sh/',
-    github: 'https://github.com/jrgarciadev/petgram',
-    descriptionHtml: 'Is a social Web & PWA application to upload, share and like pets photos',
-    techs: ['React.js', 'GraphQL', 'Apollo'],
+    title: 'Desarrollo Front-End y WebApps Modernas',
+    external: 'https://fitraining.es',
+    github: 'https://github.com/F1r0x', 
+    descriptionHtml:
+      "Diseño y desarrollo de aplicaciones web completas con React y Tailwind, paneles de administración para entrenadores, integración de APIs REST, gestión de usuarios y creación de interfaces responsivas centradas en la experiencia de usuario.",
+    techs: ['React', 'Tailwind CSS', 'JavaScript', 'Figma', 'REST API', 'Git', 'HTML', 'CSS'],
   },
   {
-    title: 'Framework components for Vue.js',
-    external: 'https://vuesax.com',
-    github: 'https://github.com/jrgarciadev/vuesax',
-    descriptionHtml: 'I sometimes contributed to a Vue.js components framework, Vuesax.',
-    techs: ['Vue.js', 'Javascript', 'LESS'],
+    title: 'Desarrollo de Chatbots y Asistentes Inteligentes',
+    external: 'https://automatizatutrabajo.com',
+    github: 'https://github.com/F1r0x',
+    descriptionHtml:
+      "Desarrollo de asistentes conversacionales, chatbots empresariales y sistemas automatizados para gestión de llamadas y soporte al cliente, integrando IA con APIs externas y flujos automatizados.",
+    techs: ['OpenAI API', 'N8N', 'Make', 'Node.js', 'Webhooks', 'JSON', 'Docker'],
   },
 ];
