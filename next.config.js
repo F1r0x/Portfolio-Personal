@@ -4,7 +4,7 @@ module.exports = {
   remotePatterns: [
   {
   protocol: 'https',
-  hostname: 'jrgarciadev.s3.amazonaws.com',
+  hostname: 'profilepatrick.com',
   },
   ],
   },
