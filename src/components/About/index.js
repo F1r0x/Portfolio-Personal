@@ -24,10 +24,13 @@ const About = () => {
             <p>
               ¡Buenas! Mi nombre es Patrick y soy un desarrollador web de Alicante, España.
              <br />
+             <br />
               Desde hace más de 5 años me dedico a crear aplicaciones web y móviles, especializándome en el desarrollo Front-End. 
               También tengo experiencia en laboratorios de ciberseguridad y administración de sistemas Linux.
               <br />
+              <br />
               Mi objetivo es encontrar un trabajo donde pueda seguir aprendiendo y creciendo como desarrollador, aportando valor a la empresa y a los usuarios finales.
+              <br />
               <br />
               Estas son algunas de las tecnologías que más he utilizado durante estos últimos años:
             </p>

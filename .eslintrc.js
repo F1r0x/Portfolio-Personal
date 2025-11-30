@@ -1,12 +1,21 @@
 module.exports = {
-  parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:prettier/recommended'],
+  parser: '@babel/eslint-parser',
+  extends: [
+    'airbnb',
+    'plugin:prettier/recommended',
+    'next',
+    'next/core-web-vitals',
+  ],
   env: {
     browser: true,
     jest: true,
+    es6: true,
   },
   plugins: ['react', 'jsx-a11y', 'import', 'prettier'],
   settings: {
+    react: {
+      version: 'detect',
+    },
     'import/core-modules': ['styled-jsx', 'styled-jsx/css'],
   },
   rules: {
