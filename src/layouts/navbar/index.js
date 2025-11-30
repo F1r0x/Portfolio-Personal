@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks } from '@config';
 import { LOADER_DELAY } from '@lib/constants';
 import { useScrollDirection } from '@hooks';
 import { Menu } from '@components';
 import { IconLogo } from '@components/Icons';
-// import * as gtag from '@lib/gtag';
 import { StyledHeader, StyledNav, StyledLinks } from './styles';
 
 const Nav = ({ isHome }) => {
@@ -32,79 +31,78 @@ const Nav = ({ isHome }) => {
     };
   }, []);
 
-  const timeout = isHome ? LOADER_DELAY : 0;
-  const fadeClass = isHome ? 'fade' : '';
-  const fadeDownClass = isHome ? 'fadedown' : '';
+  const variantsFade = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
 
-  //   const handleClickResume = () => {
-  //     if (IS_PRODUCTION) {
-  //       gtag.event({
-  //         action: 'click_resume',
-  //         category: 'resume',
-  //         label: 'user clicked on resume button',
-  //       });
-  //     }
-  //     window.open('/resume.pdf', '_blank');
-  //   };
+  const variantsFadeDown = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
-        <TransitionGroup component={null}>
+        <AnimatePresence>
           {isMounted && (
-            <CSSTransition classNames={fadeClass} timeout={timeout}>
-              <div className="logo" tabIndex="-1">
-                {isHome ? (
-                  <a href="/" aria-label="home">
-                    <IconLogo width={36.581} height={50.186} />
-                  </a>
-                ) : (
-                  <Link href="/" aria-label="home">
-                    <IconLogo />
-                  </Link>
-                )}
-              </div>
-            </CSSTransition>
+            <motion.div
+              className="logo"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={variantsFade}
+              transition={{ duration: 0.5 }}
+            >
+              {isHome ? (
+                <a href="/" aria-label="home">
+                  <IconLogo width={36.581} height={50.186} />
+                </a>
+              ) : (
+                <Link href="/" aria-label="home">
+                  <IconLogo />
+                </Link>
+              )}
+            </motion.div>
           )}
-        </TransitionGroup>
+        </AnimatePresence>
 
         <StyledLinks>
           <ol>
-            <TransitionGroup component={null}>
+            <AnimatePresence>
               {isMounted &&
                 navLinks &&
                 navLinks.map(({ url, name }, i) => (
-                  <CSSTransition key={name} classNames={fadeDownClass} timeout={timeout}>
-                    <li key={url} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                      <a data-scroll href={url}>
-                        {name}
-                      </a>
-                    </li>
-                  </CSSTransition>
+                  <motion.li
+                    key={url}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={variantsFadeDown}
+                    transition={{ duration: 0.5, delay: isHome ? i * 0.1 : 0 }}
+                  >
+                    <a data-scroll href={url}>
+                      {name}
+                    </a>
+                  </motion.li>
                 ))}
-            </TransitionGroup>
+            </AnimatePresence>
           </ol>
-
-          {/* <TransitionGroup component={null}>
-            {isMounted && (
-              <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
-                  <a onClick={handleClickResume} className="resume-button">
-                    Resume
-                  </a>
-                </div>
-              </CSSTransition>
-            )}
-          </TransitionGroup> */}
         </StyledLinks>
 
-        <TransitionGroup component={null}>
+        <AnimatePresence>
           {isMounted && (
-            <CSSTransition classNames={fadeClass} timeout={timeout}>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={variantsFade}
+              transition={{ duration: 0.5 }}
+            >
               <Menu />
-            </CSSTransition>
+            </motion.div>
           )}
-        </TransitionGroup>
+        </AnimatePresence>
       </StyledNav>
     </StyledHeader>
   );

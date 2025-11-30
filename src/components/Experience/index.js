@@ -1,24 +1,26 @@
 /* eslint-disable react/no-array-index-key */
 import { useState, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { NAV_DELAY, LOADER_DELAY } from '@lib/constants';
+import { motion, AnimatePresence } from 'framer-motion';
+import { NAV_DELAY } from '@lib/constants';
 import { StyledExperienceSection, StyledTimeline, StyledTimelineItem, StyledTimelineDot, StyledTimelineContent, StyledTimelineLine } from './styles';
 import { NumberedHeading } from '@common/styles';
 
 const Experience = () => {
   const [isMounted, setIsMounted] = useState(false);
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), NAV_DELAY);
     return () => clearTimeout(timeout);
   }, []);
 
-  // Aquí van los datos de tus experiencias laborales. Cada objeto representa un trabajo.
-  // Añade o modifica según tus datos reales. La cronología se asume de más reciente a más antigua,
-  // pero puedes ordenarlos como prefieras (el timeline se renderiza en orden descendente visualmente).
   const experiences = [
     {
-      title: 'Desarrollador de Aplicaciones Web ',
+      title: 'Desarrollador de Aplicaciones Web',
       company: 'Freelancer',
       period: 'Julio 2025 - Presente',
       description: 'Diseño y desarrollo de aplicaciones y sitios web a medida para empresas y particulares.',
@@ -30,23 +32,29 @@ const Experience = () => {
       description: 'Desarrollo de aplicaciones web escalables con React y Node.js, automatización de sistemas con N8N y Make, gestión de bases de datos, auditorías de ciberseguridad...',
     },
     {
-      title: 'Tecnico de Sistemas Fotovoltaicos',
+      title: 'Técnico de Sistemas Fotovoltaicos',
       company: 'Ruano Energía S.L',
       period: 'Abril 2020 - Agosto 2021',
-      description: 'Operario técnico en instalaciónes fotovoltaicas, instalación y programación de inversores, actualización y renovación de software, sistemas de redes y conexiones.',
+      description: 'Operario técnico en instalaciones fotovoltaicas, instalación y programación de inversores, actualización y renovación de software, sistemas de redes y conexiones.',
     },
-    // Añade más experiencias aquí si es necesario
   ];
 
   return (
     <StyledExperienceSection id="experience">
       <NumberedHeading>Experiencia Laboral</NumberedHeading>
       <StyledTimeline>
-        <TransitionGroup component={null}>
+        <AnimatePresence>
           {isMounted &&
             experiences.map((exp, i) => (
-              <CSSTransition key={i} classNames="slidein" timeout={LOADER_DELAY}>
-                <StyledTimelineItem style={{ transitionDelay: `${i * 200}ms` }}>
+              <motion.div
+                key={i}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={itemVariants}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+              >
+                <StyledTimelineItem>
                   <StyledTimelineDot delay={i * 200 + 100} />
                   <StyledTimelineContent>
                     <h3>{exp.title}</h3>
@@ -56,9 +64,9 @@ const Experience = () => {
                   </StyledTimelineContent>
                   {i < experiences.length - 1 && <StyledTimelineLine delay={i * 200 + 400} />}
                 </StyledTimelineItem>
-              </CSSTransition>
+              </motion.div>
             ))}
-        </TransitionGroup>
+        </AnimatePresence>
       </StyledTimeline>
     </StyledExperienceSection>
   );

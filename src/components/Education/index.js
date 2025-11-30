@@ -1,12 +1,18 @@
 /* eslint-disable react/no-array-index-key */
 import { useState, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';import { NAV_DELAY, LOADER_DELAY } from '@lib/constants';
+import { motion, AnimatePresence } from 'framer-motion';
+import { NAV_DELAY, LOADER_DELAY } from '@lib/constants';
 import { StyledEducationSection, StyledTimeline, StyledTimelineItem, StyledTimelineDot, StyledTimelineContent, StyledTimelineLine, StyledIcon } from './styles';
 import { NumberedHeading } from '@common/styles';
 
 const Education = () => {
   const [isMounted, setIsMounted] = useState(false);
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+  
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), NAV_DELAY);
     return () => clearTimeout(timeout);
@@ -63,13 +69,20 @@ const Education = () => {
     <StyledEducationSection id="education">
             <NumberedHeading>Estudios</NumberedHeading>
       <StyledTimeline>
-        <TransitionGroup component={null}>
+      <AnimatePresence>
           {isMounted &&
             educations.map((edu, i) => (
-              <CSSTransition key={i} classNames="zoomfade" timeout={LOADER_DELAY}>
-                <StyledTimelineItem style={{ transitionDelay: `${i * 300}ms` }} rightAligned>
+              <motion.div
+                key={i}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={itemVariants}
+                transition={{ duration: 0.5, delay: i * 0.3 }} // delay en segundos
+              >
+                <StyledTimelineItem rightAligned>
                   <StyledTimelineDot delay={i * 300 + 200}>
-                {/**    <StyledIcon>{edu.icon}</StyledIcon>**/}
+                    {/** <StyledIcon>{edu.icon}</StyledIcon> **/}
                   </StyledTimelineDot>
                   <StyledTimelineContent delay={i * 300 + 400}>
                     <h3>{edu.title}</h3>
@@ -77,26 +90,27 @@ const Education = () => {
                     <span>{edu.period}</span>
                     <p>{edu.description}</p><br />
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
-                        <div style={{ flex: 1 }}>
-                            { edu.id_cert && (
-                            <span>[+] ID de la Certificación: <p><a href={edu.url_verification}>{edu.id_cert}</a></p></span>
-                            )}
-                            {edu.url_verification && (
-                            <span>[+] URL de Verificación: <p><a href={edu.url_verification}>{edu.url_verification}</a></p></span>
-                            )}
-                        </div>
-                        <div className="cert-wrapper">
-                            {edu.img_cert && (
-                            <img src={edu.img_cert} alt="Certificado" width="300px" />
-                            )}
-                        </div>
+                      <div style={{ flex: 1 }}>
+                        {edu.id_cert && (
+                          <span>[+] ID de la Certificación: <p><a href={edu.url_verification}>{edu.id_cert}</a></p></span>
+                        )}
+                        {edu.url_verification && (
+                          <span>[+] URL de Verificación: <p><a href={edu.url_verification}>{edu.url_verification}</a></p></span>
+                        )}
+                      </div>
+                      <div className="cert-wrapper">
+                        {edu.img_cert && (
+                          <img src={edu.img_cert} alt="Certificado" width="300px" />
+                        )}
+                      </div>
                     </div>
                   </StyledTimelineContent>
                   {i < educations.length - 1 && <StyledTimelineLine delay={i * 300 + 600} />}
                 </StyledTimelineItem>
-              </CSSTransition>
+              </motion.div>
             ))}
-        </TransitionGroup>
+        </AnimatePresence>
+
       </StyledTimeline>
     </StyledEducationSection>
   );

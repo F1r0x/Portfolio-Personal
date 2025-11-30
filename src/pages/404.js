@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { NAV_DELAY } from '@lib/constants';
 
@@ -31,20 +31,31 @@ const NotFoundPage = () => {
     return () => clearTimeout(timeout);
   }, []);
 
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <TransitionGroup component={null}>
+    <AnimatePresence>
       {isMounted && (
-        <CSSTransition timeout={500} classNames="fadeup">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={fadeUpVariants}
+          transition={{ duration: 0.5 }}
+        >
           <StyledMainContainer className="fillHeight">
             <StyledTitle>404</StyledTitle>
             <StyledSubtitle>Page Not Found</StyledSubtitle>
-            <Link href="/">
+            <Link href="/" passHref>
               <StyledHomeButton>Go Home</StyledHomeButton>
             </Link>
           </StyledMainContainer>
-        </CSSTransition>
+        </motion.div>
       )}
-    </TransitionGroup>
+    </AnimatePresence>
   );
 };
 

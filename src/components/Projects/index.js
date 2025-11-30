@@ -2,7 +2,7 @@
 /* eslint-disable global-require */
 /* eslint-disable no-return-assign */
 import { useEffect, useState, useRef } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@components/Icons';
 import { projects } from '@config';
 import { srConfig } from '@config/sr';
@@ -18,6 +18,11 @@ const Projects = () => {
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
   const revealProjects = useRef([]);
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   useEffect(() => {
     const ScrollReveal = require('scrollreveal');
@@ -42,27 +47,25 @@ const Projects = () => {
           <a className="archive-link inline-link">View all projects</a>
         </Link> */}
       </div>
-      <TransitionGroup className="projects-grid">
+
+      <AnimatePresence>
         {projectsToShow &&
           projectsToShow.map((project, i) => {
             const { title, descriptionHtml, github, external, techs } = project;
 
             return (
-              <CSSTransition
+              <motion.div
                 key={title}
-                classNames="fadeup"
-                timeout={i >= PROJECTS_GRID_LIMIT ? (i - PROJECTS_GRID_LIMIT) * 300 : 300}
-                exit={false}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={itemVariants}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <StyledProject
-                  key={title}
                   ref={(el) => (revealProjects.current[i] = el)}
                   tabIndex="0"
-                  style={{
-                    transitionDelay: `${
-                      i >= PROJECTS_GRID_LIMIT ? (i - PROJECTS_GRID_LIMIT) * 100 : 0
-                    }ms`,
-                  }}
+                  style={{ marginBottom: '1rem' }}
                 >
                   <div className="project-inner">
                     <header>
@@ -77,10 +80,7 @@ const Projects = () => {
                             </a>
                           )}
                           {external && (
-                            <a
-                              onClick={() => handleClickProject(external)}
-                              aria-label="External Link"
-                            >
+                            <a onClick={() => handleClickProject(external)} aria-label="External Link">
                               <Icon name="External" />
                             </a>
                           )}
@@ -106,10 +106,11 @@ const Projects = () => {
                     </footer>
                   </div>
                 </StyledProject>
-              </CSSTransition>
+              </motion.div>
             );
           })}
-      </TransitionGroup>
+      </AnimatePresence>
+
       {projects && projects.length > 6 && (
         <button type="button" className="more-button" onClick={() => setShowMore(!showMore)}>
           Show {showMore ? 'Less' : 'More'}

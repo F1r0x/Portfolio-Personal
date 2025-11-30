@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { motion, AnimatePresence } from 'framer-motion';
 import { LOADER_DELAY } from '@lib/constants';
 import { StyledSideElement } from './styles';
 
@@ -8,22 +8,31 @@ const Side = ({ children, isHome, orientation }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
 
   useEffect(() => {
-    if (!isHome) {
-      return null;
-    }
+    if (!isHome) return;
     const timeout = setTimeout(() => setIsMounted(true), LOADER_DELAY);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [isHome]);
+
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <StyledSideElement orientation={orientation}>
-      <TransitionGroup component={null}>
+      <AnimatePresence>
         {isMounted && (
-          <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? LOADER_DELAY : 0}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={variants}
+            transition={{ duration: 0.5 }}
+          >
             {children}
-          </CSSTransition>
+          </motion.div>
         )}
-      </TransitionGroup>
+      </AnimatePresence>
     </StyledSideElement>
   );
 };
