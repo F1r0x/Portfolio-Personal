@@ -1,6 +1,14 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    sizes: [320, 480, 820, 1200],
-    domains: ['jrgarciadev.s3.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
+  output: 'export', // para generar HTML estático
 };
+
+module.exports = nextConfig;
