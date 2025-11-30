@@ -1,3 +1,4 @@
+// src/config/index.js
 import featuredProjects from './featured';
 import projects from './projects';
 
@@ -5,10 +6,27 @@ export const email = 'patrickschonewolf@hotmail.com';
 export { featuredProjects, projects };
 
 export const skills = [
-  'Linux', 'HTML', 'CSS', 'JavaScript', 'React', 'Next.js',
-  'Bash', 'TypeScript', 'Git', 'Docker', 'Virtualbox',
-  'Nmap', 'Metasploit', 'Wireshark', 'Burp Suite',
-  'WordPress', 'Elementor', 'MySQL', 'N8N', 'OpenAI API', 'Photoshop'
+  'Linux',
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Next.js',
+  'Bash',
+  'TypeScript',
+  'Git',
+  'Docker',
+  'Virtualbox',
+  'Nmap',
+  'Metasploit',
+  'Wireshark',
+  'Burp Suite',
+  'WordPress',
+  'Elementor',
+  'MySQL',
+  'N8N',
+  'OpenAI API',
+  'Photoshop',
 ];
 
 export const socialMedia = [
